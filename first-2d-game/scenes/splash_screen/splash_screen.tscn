@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=1]
-[ext_resource path="res://InitialSetup.gd" type="Script" id=2]
+[ext_resource path="res://scenes/splash_screen/splash_screen.gd" type="Script" id=2]
 
 [sub_resource type="DynamicFont" id=2]
 size = 60
@@ -38,5 +38,11 @@ margin_top = -265.0
 margin_right = 195.0
 margin_bottom = -225.0
 mouse_filter = 2
+
+[node name="Control" type="Control" parent="."]
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 48.0
+margin_bottom = 48.0
 
 [connection signal="value_changed" from="ProgressBar" to="." method="_on_ProgressBar_value_changed"]

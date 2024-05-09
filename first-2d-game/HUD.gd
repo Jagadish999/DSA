@@ -19,46 +19,38 @@ func show_game_over():
 	$Message.show()
 	
 	yield(get_tree().create_timer(1), "timeout")
+	
 	$StartButton.show()
 	$SettingButton.show()
 	$ExitButton.show()
 	
-	MainMusic.play()
-	
-	
+	GlobalMusic.play_main_music()
+
+
 func update_score(score):
 	
-	$ScoreLabel.text = str(score)
-	
-	
+	$Message.text = "Score: " + str(score);
+
+
 func _on_MessageTimer_timeout():
 	
-	$Message.hide()
+	$Message.text = "Score: 0"
 
 
 func _on_StartButton_pressed():
-	
-	emit_signal("start_game")
-	
-	ButtonClick.play()
-	ButtonClick.stop()
+	GlobalMusic.play_button_sound()
 	
 	$StartButton.hide()
 	$SettingButton.hide()
 	$ExitButton.hide()
-	
-	$ScoreLabel.show()
+
+	emit_signal("start_game")
 
 
-func _on_ExitButton_pressed():
-	
-	ButtonClick.play()
-#	ButtonClick.stop()
-#	get_tree().quit()
+func _on_SettingButton_pressed() -> void:
+	GlobalMusic.play_button_sound()
+	SceneTransaction._change_scene("res://scenes/setting/setting.tscn")
 	
 
-
-func _on_SettingButton_pressed():
-	
-	ButtonClick.play()
-	SceneTransaction._change_scene("res://Setting.tscn")
+func _on_ExitButton_pressed() -> void:
+	get_tree().quit()

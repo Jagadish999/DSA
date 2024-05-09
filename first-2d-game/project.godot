@@ -11,14 +11,14 @@ config_version=4
 [application]
 
 config/name="First- 2d-game"
-run/main_scene="res://InitialSetup.tscn"
+run/main_scene="res://scenes/splash_screen/splash_screen.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
 SceneTransaction="*res://SceneTransaction.tscn"
-MainMusic="*res://main_music.tscn"
-ButtonClick="*res://button_click.tscn"
+Globals="*res://globals.gd"
+GlobalMusic="*res://scenes/global_music/global_music.tscn"
 
 [display]
 

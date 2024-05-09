@@ -1,8 +1,10 @@
 extends Area2D
 
+
 signal player_crashed()
 
 export var speed: int = 400
+
 var screen_size: Vector2
 
 
@@ -10,7 +12,7 @@ func _ready() -> void:
 	
 	screen_size = get_viewport_rect().size;
 	hide();
-	
+
 
 func _process(delta: float) -> void:
 	
