@@ -51,15 +51,12 @@ func _process(delta: float) -> void:
 
 
 func _on_Player_body_entered(body) -> void:
-	
-	print("Collision detected")
 	hide()
 	emit_signal("player_crashed")
 	$CollisionShape2D.set_deferred("disabled", true)
 	
 
 func start(pos) -> void:
-	
 	position = pos
 	show()
 	$CollisionShape2D.disabled = false
