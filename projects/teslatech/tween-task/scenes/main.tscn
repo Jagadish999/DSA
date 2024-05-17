@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://script/main.gd" type="Script" id=1]
+[ext_resource path="res://scenes/fish.tscn" type="PackedScene" id=2]
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 1028, 5, 0, 0, 0, 0, 1028, 600 )
+}
+
+[sub_resource type="Curve2D" id=2]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 2, 4, 0, 0, 0, 0, 1, 604 )
+}
+
+[node name="Main" type="Node"]
+script = ExtResource( 1 )
+fish_scene = ExtResource( 2 )
+
+[node name="FishTimer" type="Timer" parent="."]
+autostart = true
+
+[node name="FishPathRight" type="Path2D" parent="."]
+curve = SubResource( 1 )
+
+[node name="LocationRight" type="PathFollow2D" parent="FishPathRight"]
+position = Vector2( 1028, 5 )
+rotation = 1.5708
+
+[node name="FistPathLeft" type="Path2D" parent="."]
+curve = SubResource( 2 )
+
+[node name="LocationLeft" type="PathFollow2D" parent="FistPathLeft"]
+position = Vector2( 2, 4 )
+rotation = 1.57246
+
+[connection signal="timeout" from="FishTimer" to="." method="_on_FishTimer_timeout"]
